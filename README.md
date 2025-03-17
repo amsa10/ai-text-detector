@@ -4,7 +4,7 @@ This project detects AI-generated text using a **RoBERTa-based classifier**.
 
 ## **📌 Features**  
 ✅ **Single-text detection** – Quickly check if a short passage is AI-generated.  
-✅ **Bulk detection** – Process large datasets (100+ essays) with CSV input.  
+✅ **Bulk detection** – Process large datasets (20+ essays) with CSV input.  
 ✅ **Optimized for efficiency** – Uses a **progress bar** for bulk processing.  
 
 ---
@@ -13,11 +13,11 @@ This project detects AI-generated text using a **RoBERTa-based classifier**.
 
 1️⃣ **Clone the repository**  
 ```sh
-git clone https://github.com/your-username/ai-text-detector.git
+git clone https://github.com/your-username/ai_text_detector.git
 cd ai-text-detector
 python main.py
 
-ai_text_detector_project/
+ai_text_detector/
 │── data/
 │   ├── input.csv  # Your dataset with text to analyze
 │   ├── processed_results.csv  # Output results after processing
