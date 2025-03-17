@@ -16,15 +16,14 @@ This project detects AI-generated text using a **RoBERTa-based classifier**.
 git clone https://github.com/your-username/ai-text-detector.git
 cd ai-text-detector
 python main.py
-📂 Project Structure
+
+## **📂 Project Structure**
 ai_text_detector_project/
 │── data/
 │   ├── input.csv  # Your dataset with text to analyze
 │   ├── processed_results.csv  # Output results after processing
 │── src/
-│   ├── detector.py  # AI detection logic
-│── notebooks/
-│   ├── analysis.ipynb  # Jupyter notebook for experiments
+│   ├── model1.py  # AI detection logic RoBERTa-based classifier
 │── requirements.txt  # Dependencies
 │── README.md  # Project description and usage guide
 │── .gitignore  # Ignore large files, cache, etc.
