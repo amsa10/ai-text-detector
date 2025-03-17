@@ -17,7 +17,6 @@ git clone https://github.com/your-username/ai-text-detector.git
 cd ai-text-detector
 python main.py
 
-## **📂 Project Structure**
 ai_text_detector_project/
 │── data/
 │   ├── input.csv  # Your dataset with text to analyze
@@ -28,4 +27,5 @@ ai_text_detector_project/
 │── README.md  # Project description and usage guide
 │── .gitignore  # Ignore large files, cache, etc.
 │── main.py  # Script to run detection on a dataset
+
 
