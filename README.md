@@ -2,7 +2,7 @@
 
 This project detects AI-generated text using two models:  
 1️⃣ **RoBERTa-based classifier (`model1.py`)**  
-2️⃣ **Mistral 7B + LoRA fine-tuned model (`model2.py`)**  
+2️⃣ **LoRA fine-tuned model (`model2.py`)**  
 
 ## **📌 Features**  
 ✅ **Single-text detection** – Quickly check if a short passage is AI-generated.  
