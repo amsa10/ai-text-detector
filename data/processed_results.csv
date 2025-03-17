@@ -1,0 +1,11 @@
+id,text,ai_generated
+1,"This is a simple sentence written by a human.",0.02
+2,"The evolution of artificial intelligence has led to remarkable advancements in natural language processing.",0.89
+3,"Hello! How can I assist you today?",0.15
+4,"Recent studies have shown that transformer-based models excel in various text classification tasks.",0.78
+5,"AI-generated content often exhibits a high level of coherence but may lack deep contextual understanding.",0.92
+6,"Artificial intelligence is revolutionizing many industries, including healthcare and finance.",0.85
+7,"The quick brown fox jumps over the lazy dog.",0.10
+8,"This essay explores the implications of machine-generated text on academic integrity.",0.88
+9,"Large language models can generate highly realistic text, making AI detection an important field of research.",0.94
+10,"Thank you for using this AI detection tool!",0.05
