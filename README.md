@@ -16,7 +16,6 @@ This project detects AI-generated text using two models:
 
 1️⃣ **Clone the repository**  
 ```sh
-git clone https://github.com/your-username/ai_text_detector.git
 cd ai-text-detector
 pip install -r requirements.txt
 python main.py --model model1
