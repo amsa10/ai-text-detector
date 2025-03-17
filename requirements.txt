@@ -1,4 +1,9 @@
 torch
+torchvision
+torchaudio
 transformers
 pandas
 tqdm
+peft
+bitsandbytes
+accelerate
