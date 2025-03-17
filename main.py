@@ -1,4 +1,4 @@
-from src.detector import process_bulk_data
+from src.model1 import process_bulk_data
 
 # Define file paths
 INPUT_FILE = "data/input.csv"
