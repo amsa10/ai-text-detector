@@ -27,7 +27,7 @@ ai-text-detector/
 │   ├── processed_results.csv  # Output results after processing
 │── src/
 │   ├── model1.py  # RoBERTa-based classifier
-│   ├── model2.py  # Mistral 7B + LoRA fine-tuned model
+│   ├── model2.py  # LoRA fine-tuned model
 │── requirements.txt  # Dependencies
 │── README.md  # Project description and usage guide
 │── .gitignore  # Ignore large files, cache, etc.
