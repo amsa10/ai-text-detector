@@ -8,8 +8,8 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
 # Paths (Modify these if not using Kaggle)
-BASE_MODEL_PATH = "/kaggle/input/mistral/pytorch/7b-v0.1-hf/1"  # Base Mistral model
-LORA_PATH = "/kaggle/input/llm-daigt-single-best-mistral-7b-lora/transformers/v1/1"  # LoRA adapters
+BASE_MODEL_PATH = "mistral/pytorch/7b-v0.1-hf/1"  # Base Mistral model
+LORA_PATH = "llm-daigt-single-best-mistral-7b-lora/transformers/v1/1"  # LoRA adapters
 
 # Load tokenizer
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_PATH)
