@@ -22,7 +22,7 @@ pip install -r requirements.txt
 python main.py --model model1
 python main.py --model model2
 
-ai_text_detector/
+ai-text-detector/
 │── data/
 │   ├── input.csv  # Your dataset with text to analyze
 │   ├── processed_results.csv  # Output results after processing
