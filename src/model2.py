@@ -7,18 +7,18 @@ from peft import PeftModel, PeftConfig
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
-# Paths in Kaggle
+# Paths (Modify these if not using Kaggle)
 BASE_MODEL_PATH = "/kaggle/input/mistral/pytorch/7b-v0.1-hf/1"  # Base Mistral model
 LORA_PATH = "/kaggle/input/llm-daigt-single-best-mistral-7b-lora/transformers/v1/1"  # LoRA adapters
 
 # Load tokenizer
 tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_PATH)
 
-# 🔹 Fix: Ensure the tokenizer has a padding token
+# Ensure tokenizer has a padding token
 if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token  # Use end-of-sequence token as padding
+    tokenizer.pad_token = tokenizer.eos_token
 
-# Quantization configuration for 4-bit inference
+# Quantization configuration
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_quant_type="nf4",
@@ -39,34 +39,39 @@ model = AutoModelForSequenceClassification.from_pretrained(
 if not hasattr(model, "score"):
     model.score = nn.Linear(model.config.hidden_size, 1).to(device)
 
-# Load LoRA configuration
-peft_config = PeftConfig.from_pretrained(LORA_PATH)
-
 # Load LoRA adapters
+peft_config = PeftConfig.from_pretrained(LORA_PATH)
 model = PeftModel.from_pretrained(model, LORA_PATH, config=peft_config)
 
 # Move model to device
 model.to(device)
 
-# 🔹 Fix: Ensure padding token is set in model config
+# Ensure padding token is set
 model.config.pad_token_id = tokenizer.pad_token_id
 
 print("✅ Model loaded successfully!")
 
-def get_ai_generated_score(text, model, tokenizer, device):
+
+def get_ai_generated_score(text):
     """Returns the AI-generated likelihood score for a given text."""
-    
-    # Tokenize input text
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=512)
-    
-    # Move input tensors to device
     inputs = {key: value.to(device) for key, value in inputs.items()}
     
-    # Perform inference
     with torch.no_grad():
         outputs = model(**inputs)
 
-    # Extract score
-    score = torch.sigmoid(outputs.logits).item()  # Convert to probability (0 to 1)
+    score = torch.sigmoid(outputs.logits).item()  # Convert to probability
+    return score  # Higher = more AI-like
 
-    return score  # Higher means more AI-like
+
+def process_bulk_data(input_file, output_file):
+    """Process bulk text data using model2."""
+    import pandas as pd
+    from tqdm import tqdm
+
+    df = pd.read_csv(input_file)
+    tqdm.pandas()
+    df["scores"] = df["text"].progress_apply(get_ai_generated_score)
+    df.to_csv(output_file, index=False)
+    print(f"✅ Processed results saved to {output_file}")
+
